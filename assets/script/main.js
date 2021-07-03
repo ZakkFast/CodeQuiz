@@ -8,7 +8,9 @@ ToDO
         0.1 show the button that says start -Done
         0.2 on click make the button disappear 
         0.3 on click show the counter and the first question
+
     1. show the timer counting down
+
     2. show quizz questions
         2.1 create quiz object
         2.2 quiz object contains a question, up to 4 answers, and a correct answer identifier 
@@ -18,17 +20,45 @@ ToDO
             2.4.2 quiz answers should be shown as a list with radio buttons
         2.5 use a json file to create a list of questions and populate them 
         2.6 add logic to decide which question to display
+
     3. capture quiz answers
+
     4. when timer expires, show correct answers
+
     5. prompt for initials
+
     6. show highest scores
-    7. update CSS - Done
+
+    7. update CSS - 
 */
-// DOM vars
-const currentTime = document.getElementById('currentTime');
-const timer = document.getElementById('startTime');
-const questionsDiv = document.getElementById('questionsDiv');
-const wrapper = document.getElementById('wrapper')
+
+// Selectors
+const currentTime = document.querySelector('#currentTime')
+const timer = document.querySelector('#startTime')
+const questionsDiv = document.querySelector('#questionsDiv')
+const wrapper = document.querySelector('#wrapper')
+
+//Timer
+let secondsLeft = 10
+let holdInterval = 0
+const penatly = 10
+const ulCreate = document.createElement('ul')
+
+// Timer.. I think? 
+
+timer.addEventListener('click', function(){
+  if(holdInterval === 0) {
+    holdInterval = setInterval(function(){
+      secondsLeft--;
+      currentTime.textContent = `${secondsLeft} seconds left!`
+
+      if(secondsLeft <= 0) {
+        clearInterval(holdInterval);
+        currentTime.textContent = `Time's up!`
+      }
+    }, 1000)
+  }
+})
 
 
 
