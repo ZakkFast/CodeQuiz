@@ -1,3 +1,4 @@
+//Questions, Choices, and Answers.
 const questions = [
     {
       title: 'HTML is a programming langauge?',
@@ -64,8 +65,11 @@ const choicesUlEl = document.querySelector('#choicesUl')
 //Timer varibles
 let secondsLeft = 25
 let holdInterval = 0
-const penatly = 10
+const penatly = 5
+
+//Create Elements
 const liCreate = document.createElement('li')
+const ulCreate = document.createElement('ul')
 
 // Scoring and Questions 
 let score = 0
@@ -90,25 +94,67 @@ timerEl.addEventListener('click', function(){
   } populate(questionIndex);
 })
 
-function populate(input){
-  questionsTextEl.innerHTML = questions[input].title;
-  for (i = 0; i < questions[input].choices.length; i++){
-    //populate list with question choices length i++
-    let listItem = document.createElement('li')
-    listItem.textContent = questions[input].choices[i]
-    listItem.addEventListener('click', test1)
-    choicesUlEl.appendChild(listItem)
+
+
+
+
+function populate(questionIndex) {
+  // Clears screen
+  questionsDivEl.innerHTML = "";
+  ulCreate.innerHTML = "";
+  // Loops through info in array
+  for (var i = 0; i < questions.length; i++) {
+    // Appends question
+    var userQuestion = questions[questionIndex].title;
+    var userChoices = questions[questionIndex].choices;
+    questionsDivEl.textContent = userQuestion;
   }
+  // populates each choice
+  userChoices.forEach(function (newItem) {
+    var listItem = document.createElement("li");
+    listItem.textContent = newItem;
+    questionsDiv.appendChild(ulCreate);
+    ulCreate.appendChild(listItem);
+    listItem.addEventListener("click", (compare));
+  })
 }
 
-function test1(event){
-  console.log(event)
+function compare(event){
+  var element =event.target;
+  if(element.matches('li')) {
+    var createDiv = document.createElement('div');
+    createDiv.setAttribute('id', 'createDiv');
+    //Correct conditional
+    if (element.textContent === questions[questionIndex].answer){
+      score++;
+      createDiv.textContent = `Correct!`
+      //Incorrect conditional
+    } else {
+      //deduct time for score
+      secondsLeft = secondsLeft - penatly;
+      createDiv.textContent = `Incorrect! The correct answer is ${questions[questionIndex].answer}`
+    }
+  }
+  // Finds out which question the user is on
+  questionIndex++;
+
+  if(questionIndex >= questions.length) {
+    //finish function will display user stats
+    test1();
+    createDiv.textContent = `You've finished. You answered a ${score}/${questions.length} correct!`
+  } else {
+    populate(questionIndex);
+  }
+  questionsDivEl.appendChild(createDiv)
 }
 
+function test1(){
+  console.log('working')
+}
 
-// function compare(){
-  
-  // }
+// function finish(){
+
+// }
   
   
   // let div = document.createElement('div');
@@ -122,6 +168,17 @@ function test1(event){
   
   // questionIndex++;
 
+
+  // function populate(input){
+//   questionsTextEl.innerHTML = questions[input].title;
+//   for (i = 0; i < questions[input].choices.length; i++){
+//     //populate list with question choices length i++
+//     let listItem = document.createElement('li')
+//     listItem.textContent = questions[input].choices[i]
+//     listItem.addEventListener('click', test1)
+//     choicesUlEl.appendChild(listItem)
+//   }
+// }
 
 
   /*
