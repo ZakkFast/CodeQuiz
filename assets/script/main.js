@@ -1,68 +1,3 @@
-
-
-
-/*
-ToDO
-
-     0. add start button to start the counter
-        0.1 show the button that says start -Done
-        0.2 on click make the button disappear 
-        0.3 on click show the counter and the first question
-
-    1. show the timer counting down
-
-    2. show quizz questions
-        2.1 create quiz object
-        2.2 quiz object contains a question, up to 4 answers, and a correct answer identifier 
-        2.3 quiz object will have a function that takes an answer and returns true if it matches the correct answer
-        2.4 display the quiz question and the answers to the screen
-            2.4.1 quiz question should be shown by iteslef 
-            2.4.2 quiz answers should be shown as a list with radio buttons
-        2.5 use a json file to create a list of questions and populate them 
-        2.6 add logic to decide which question to display
-
-    3. capture quiz answers
-
-    4. when timer expires, show correct answers
-
-    5. prompt for initials
-
-    6. show highest scores
-
-    7. update CSS - 
-*/
-
-// Selectors
-const currentTime = document.querySelector('#currentTime')
-const timer = document.querySelector('#startTime')
-const questionsDiv = document.querySelector('#questionsDiv')
-const wrapper = document.querySelector('#wrapper')
-
-//Timer
-let secondsLeft = 10
-let holdInterval = 0
-const penatly = 10
-const ulCreate = document.createElement('ul')
-
-// Timer.. I think? 
-
-timer.addEventListener('click', function(){
-  if(holdInterval === 0) {
-    holdInterval = setInterval(function(){
-      secondsLeft--;
-      currentTime.textContent = `${secondsLeft} seconds left!`
-
-      if(secondsLeft <= 0) {
-        clearInterval(holdInterval);
-        currentTime.textContent = `Time's up!`
-      }
-    }, 1000)
-  }
-})
-
-
-
-// var with questions and answers for comparrison
 const questions = [
     {
       title: 'HTML is a programming langauge?',
@@ -115,3 +50,81 @@ const questions = [
       answer: 'Brendan Eich'
     },
   ]
+
+
+
+// Selectors
+const currentTimeEl = document.querySelector('#currentTime')
+const timerEl = document.querySelector('#startTime')
+const questionsDivEl = document.querySelector('#questionsDiv')
+const wrapperEl = document.querySelector('#wrapper')
+const questionsTextEl = document.querySelector('#questionsText')
+const choicesUlEl = document.querySelector('#choicesUl')
+
+//Timer varibles
+let secondsLeft = 25
+let holdInterval = 0
+const penatly = 10
+const liCreate = document.createElement('li')
+
+// Scoring and Questions 
+let score = 0
+let questionIndex = 0
+
+
+// Functions
+
+// Timer.. I think? 
+timerEl.addEventListener('click', function(){
+  timerEl.style.display = 'none'
+  if(holdInterval === 0) {
+    holdInterval = setInterval(function(){
+      secondsLeft--;
+      currentTimeEl.textContent = `${secondsLeft} seconds left!`
+      
+      if(secondsLeft <= 0) {
+        clearInterval(holdInterval);
+        currentTimeEl.textContent = `Time's up!`
+      }
+    }, 1000)
+  } populate(questionIndex);
+})
+
+function populate(input){
+  questionsTextEl.innerHTML = questions[input].title;
+  for (i = 0; i < questions[input].choices.length; i++){
+    //populate list with question choices length i++
+    let listItem = document.createElement('li')
+    listItem.textContent = questions[input].choices[i]
+    listItem.addEventListener('click', test1)
+    choicesUlEl.appendChild(listItem)
+  }
+}
+
+function test1(event){
+  console.log(event)
+}
+
+
+// function compare(){
+  
+  // }
+  
+  
+  // let div = document.createElement('div');
+  //   div.innerHTML = '<p>Created Example</p>'
+  //   document.body.appendChild(div)
+  
+  
+  //   //Remove h1 on start
+  
+  //   questions.input.choices
+  
+  // questionIndex++;
+
+
+
+  /*
+          ===== write compare next question function add to listItem Event
+
+  */
