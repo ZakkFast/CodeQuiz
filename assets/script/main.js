@@ -1,7 +1,7 @@
 //Questions, Choices, and Answers.
 const questions = [
     {
-      title: 'HTML is a programming langauge?',
+      title: 'HTML is a programming langauge.',
       choices: ['True', 'False'],
       answer: 'False'
     },
@@ -9,6 +9,11 @@ const questions = [
       title: 'What does CSS stand for?',
       choices: ['Computational Systems Syntax', 'Cool-Dude Steven Segall', 'Casscading Style Sheet', 'Counter Strike Source'],
       answer: 'Casscading Style Sheet'
+    },
+    {
+      title:'JavaScript was created in 1995 by which person below?',
+      choices: ['James Gosling', 'Gary Gygax', 'Hidetaka Miyazaki', 'Brendan Eich'],
+      answer: 'Brendan Eich'
     },
     {
       title: 'What does HTML stand for?',
@@ -37,7 +42,7 @@ const questions = [
     },
     {
       title:'Which of the follow statements about "const" is false?',
-      choices: ['const can not be redeclared', 'const was introduced in ES5', 'const must be assigned', 'varibles with const have block scope'],
+      choices: ['const can not be redeclared', 'const was introduced in ES5', 'const must be assigned',],
       answer: 'const was introduced in ES5'
     },
     {
@@ -46,9 +51,54 @@ const questions = [
       answer: 'Is used to create space around an elements content, inside of any defined borders.'
     },
     {
-      title:'Bonus Question! JavaScript was created in 1995 by which person below?',
-      choices: ['James Gosling', 'Gary Gygax', 'Hidetaka Miyazaki', 'Brendan Eich'],
-      answer: 'Brendan Eich'
+      title:'Which CSS property controls the text size?',
+      choices:['font-style', 'font-size', 'text-size', 'text-adjust'],
+      answer:'font-size',
+    },
+    {
+      title:'What was Javascript orginally called during development?',
+      choices:['Emerald', 'Java2', 'Mocha', 'GenScripter'],
+      answer:'Mocha',
+    },
+    {
+      title:'Node.js is ___',
+      choices:['a runtime enviroment', 'ran exclusivly on front-end', 'based on the V6 JavaScript Engine', 'runs on the tears of new developers'],
+      answer:'a runtime enviroment',
+    },
+    {
+      title:'Given the follow var "var fruits = ["apples", "oranges", "pears"], what will be returned if we log "fruits[1]"?',
+      choices:['apples', 'oranges', 'pears', 'undefined'],
+      answer:'oranges',
+    },
+    {
+      title:'How many days was Javascript in devolpment before being release?',
+      choices:['22', '265', '10', '87'],
+      answer:'10',
+    },
+    {
+      title:'What was the inital release date for CSS',
+      choices:['March 16, 1999', 'December 17th, 1996', 'July 4th, 2005', 'April 15th, 1452'],
+      answer:'December 17th, 1996',
+    },
+    {
+      title:'What is the proper file extension for a JavaScript file?',
+      choices:['.Java', '.JavaScript', '.js', '.j'],
+      answer:'.js',
+    },
+    {
+      title:'What does ECMA stand for?',
+      choices:['European Computer Manufacturers Association', 'Edgy Cats Meowing Always', 'Euro Compact Machine Assist'],
+      answer:'European Computer Manufacturers Association',
+    },
+    {
+      title:'The first web page was made by Tim Berners-Lee and was dedicated to information on the World Wide Web project. It was released in what year?',
+      choices:['1988', '1996', '1972', '1991'],
+      answer:'1991',
+    },
+    {
+      title:'DOM stand for Document Objective Model',
+      choices:['True', 'False'],
+      answer:'False',
     },
   ]
 
@@ -61,7 +111,7 @@ const questionsTextEl = document.querySelector('#questionsText')
 const choicesUlEl = document.querySelector('#choicesUl')
 
 //Timer varibles
-let secondsLeft = 999
+let secondsLeft = 120
 let holdInterval = 0
 const penatly = 5
 
