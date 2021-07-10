@@ -217,15 +217,15 @@ function finish(){
         score: timeLeft
       }
       console.log(finalScore);
-      let allScores = localStorage.getItem('allScores');
-      if (allScores === null) {
-        allScores = [];
+      let scoreData = localStorage.getItem('scoreData');
+      if (scoreData === null) {
+        scoreData = [];
       }else {
-        allScores = JSON.parse(allScores);
+        scoreData = JSON.parse(scoreData);
       }
-      allScores.push(finalScore);
-      const newScore = JSON.stringify(allScores);
-      localStorage.setItem('allScores', newScore);
+      scoreData.push(finalScore);
+      const newScore = JSON.stringify(scoreData);
+      localStorage.setItem('scoreData', newScore);
       // Takes user to Leaderboard page
       window.location.replace('./Leader-board.html')
     }
