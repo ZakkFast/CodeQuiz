@@ -52,8 +52,6 @@ const questions = [
     },
   ]
 
-
-
 // Selectors
 const currentTimeEl = document.querySelector('#currentTime')
 const timerEl = document.querySelector('#startTime')
@@ -75,9 +73,6 @@ const ulCreate = document.createElement('ul')
 let score = 0
 let questionIndex = 0
 
-
-// Functions
-
 // Timer.. I think? 
 timerEl.addEventListener('click', function(){
   timerEl.style.display = 'none'
@@ -93,10 +88,6 @@ timerEl.addEventListener('click', function(){
     }, 1000)
   } populate(questionIndex);
 })
-
-
-
-
 
 function populate(questionIndex) {
   // Clears screen
@@ -141,13 +132,12 @@ function compare(event){
   if(questionIndex >= questions.length) {
     //finish function will display user stats
     finish();
-    createDiv.textContent = `You've finished. You answered a ${score}/${questions.length} correct!`
+    createDiv.textContent = `You've finished. You answered ${score}/${questions.length} questions correctly!`
   } else {
     populate(questionIndex);
   }
   questionsDivEl.appendChild(createDiv)
 }
-
 
 //Test function
 function test1(){
@@ -231,33 +221,4 @@ function finish(){
     }
   })
 }
-  
-  
-  // let div = document.createElement('div');
-  //   div.innerHTML = '<p>Created Example</p>'
-  //   document.body.appendChild(div)
-  
-  
-  //   //Remove h1 on start
-  
-  //   questions.input.choices
-  
-  // questionIndex++;
-
-
-  // function populate(input){
-//   questionsTextEl.innerHTML = questions[input].title;
-//   for (i = 0; i < questions[input].choices.length; i++){
-//     //populate list with question choices length i++
-//     let listItem = document.createElement('li')
-//     listItem.textContent = questions[input].choices[i]
-//     listItem.addEventListener('click', test1)
-//     choicesUlEl.appendChild(listItem)
-//   }
-// }
-
-
-  /*
-          ===== write compare next question function add to listItem Event
-
-  */
+//Zakk Fast

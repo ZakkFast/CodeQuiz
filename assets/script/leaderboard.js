@@ -16,15 +16,13 @@ clearBtn.addEventListener('click', function(){
     }
 });
 
-let testData = localStorage.setItem('dontDeleteOrSomething', 'testValue')
-
 let scoreData = localStorage.getItem("scoreData");
 scoreData = JSON.parse(scoreData);
 
 if(scoreData !== null) {
     for(i = 0; i < scoreData.length; i++) {
         var createLiEl = document.createElement('li');
-        createLiEl.textContent = `${scoreData[i].initials} ${scoreData[i].score}`
+        createLiEl.textContent = `${scoreData[i].initials}: ${scoreData[i].score}`
         LeaderboardEl.appendChild(createLiEl);
         console.log(`${scoreData[i].initials}`);
     }
