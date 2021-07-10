@@ -63,7 +63,7 @@ const questionsTextEl = document.querySelector('#questionsText')
 const choicesUlEl = document.querySelector('#choicesUl')
 
 //Timer varibles
-let secondsLeft = 25
+let secondsLeft = 999
 let holdInterval = 0
 const penatly = 5
 
@@ -140,7 +140,7 @@ function compare(event){
 
   if(questionIndex >= questions.length) {
     //finish function will display user stats
-    test1();
+    finish();
     createDiv.textContent = `You've finished. You answered a ${score}/${questions.length} correct!`
   } else {
     populate(questionIndex);
@@ -148,13 +148,89 @@ function compare(event){
   questionsDivEl.appendChild(createDiv)
 }
 
+
+//Test function
 function test1(){
   console.log('working')
 }
 
-// function finish(){
+function finish(){
+  questionsDivEl.textContent = '';
+  timerEl.textContent = '';
 
-// }
+  //Creating Header
+  const createHeaderEl = document.createElement('h1');
+  createHeaderEl.setAttribute('id', createHeaderEl);
+  createHeaderEl.textContent = 'Nice job!';
+
+  questionsDivEl.appendChild(createHeaderEl);
+
+  //Creating Text
+  const createTextEl =document.createElement('p');
+  createTextEl.setAttribute('id', 'createTextEl');
+
+  questionsDivEl.appendChild(createTextEl);
+
+  //Calculate Final Score
+  if(secondsLeft >= 0) {
+    var timeLeft = secondsLeft;
+    const createTextEl2 = document.createElement('p');
+    clearInterval(holdInterval);
+    createTextEl2.textContent = `Final Score:${timeLeft}`;
+
+    questionsDivEl.appendChild(createTextEl2);
+  }
+
+  //Creating Label
+  const createlabelEl = document.createElement('label');
+  createlabelEl.setAttribute('id', 'createlabelEl');
+  createlabelEl.textContent = '';
+
+  questionsDivEl.appendChild(createlabelEl);
+
+  //Create Input
+  const createInputEl = document.createElement('input');
+  createInputEl.setAttribute('type', 'text');
+  createInputEl.setAttribute('id', 'createInputEl');
+  createInputEl.textContent ='';
+
+  questionsDivEl.appendChild(createInputEl);
+
+  //Create Submit Button
+  const createSubmitEl = document.createElement('button');
+  createSubmitEl.setAttribute('type', 'submit');
+  createSubmitEl.setAttribute('id', 'submitButtonEl');
+  createSubmitEl.textContent = 'Sumbit';
+
+  questionsDivEl.appendChild(createSubmitEl);
+
+  //Event to capture initials and score and put them into local storage
+  createSubmitEl.addEventListener('click', function(){
+    let initials = createInputEl.value;
+
+    if (initials === null) {
+      console.log('test');
+
+    }else {
+      var finalScore = {
+        initials: initials,
+        score: timeLeft
+      }
+      console.log(finalScore);
+      let allScores = localStorage.getItem('allScores');
+      if (allScores === null) {
+        allScores = [];
+      }else {
+        allScores = JSON.parse(allScores);
+      }
+      allScores.push(finalScore);
+      const newScore = JSON.stringify(allScores);
+      localStorage.setItem('allScores', newScore);
+      // Takes user to Leaderboard page
+      window.location.replace('./Leader-board.html')
+    }
+  })
+}
   
   
   // let div = document.createElement('div');
