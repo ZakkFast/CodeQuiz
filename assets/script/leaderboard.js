@@ -22,8 +22,6 @@ clearBtn.addEventListener('click', function(){
 let scoreData = localStorage.getItem("scoreData");
 scoreData = JSON.parse(scoreData);
 
-// let orderScore = scoreData.score.sort((a, b) => a-b)
-// console.log(orderScore)
 //If there is scoreData then we will create an li, run through the loop, and render all
 //availble data
 if(scoreData !== null) {
