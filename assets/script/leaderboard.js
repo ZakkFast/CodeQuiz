@@ -1,9 +1,11 @@
+//Queryselectors for DOM manipulation
 const LeaderboardEl = document.querySelector('#leaderboard');
 const playAgainBtn = document.querySelector('#playAgainBtn');
 const clearBtn = document.querySelector('#clearBtn');
 
 
-//Event to clear Leaderboard storage
+//Creating an event on click to clear out the scoreData from local storage 
+//at user request
 clearBtn.addEventListener('click', function(){
     let clearPrompt = confirm('Are you sure you wish to clear your scores?');
     if(clearPrompt === true){
@@ -16,13 +18,14 @@ clearBtn.addEventListener('click', function(){
     }
 });
 
-
+//Here we are getting our scores and intials out of local storage
 let scoreData = localStorage.getItem("scoreData");
 scoreData = JSON.parse(scoreData);
 
 // let orderScore = scoreData.score.sort((a, b) => a-b)
 // console.log(orderScore)
-
+//If there is scoreData then we will create an li, run through the loop, and render all
+//availble data
 if(scoreData !== null) {
     for(i = 0; i < scoreData.length; i++) {
         var createLiEl = document.createElement('li');
@@ -32,6 +35,7 @@ if(scoreData !== null) {
     }
 };
 
+//Button to take us back to the main page to play again
 playAgainBtn.addEventListener('click', function(){
     window.location.replace('./index.html');
 });
