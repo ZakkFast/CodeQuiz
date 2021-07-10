@@ -16,8 +16,12 @@ clearBtn.addEventListener('click', function(){
     }
 });
 
+
 let scoreData = localStorage.getItem("scoreData");
 scoreData = JSON.parse(scoreData);
+
+// let orderScore = scoreData.score.sort((a, b) => a-b)
+// console.log(orderScore)
 
 if(scoreData !== null) {
     for(i = 0; i < scoreData.length; i++) {

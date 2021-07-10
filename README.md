@@ -25,7 +25,7 @@ A PC or Mac that isnt a potato.
 
 ### Contact
 
-Email: ZakkFastPro@gmail.com
-Twitter: https://Twitter.com/ZakkFast
-GitHub: https://github.com/ZakkFast
+Email: ZakkFastPro@gmail.com<br>
+Twitter: https://Twitter.com/ZakkFast<br>
+GitHub: https://github.com/ZakkFast<br>
 
