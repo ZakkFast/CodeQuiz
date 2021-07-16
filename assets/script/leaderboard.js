@@ -11,7 +11,7 @@ clearBtn.addEventListener('click', function(){
     if(clearPrompt === true){
         localStorage.removeItem('scoreData');
         alert('Data cleared')
-        location.reload
+        location.reload()
     }else {
         alert('Data not cleared');
         return;

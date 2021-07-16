@@ -111,7 +111,7 @@ const questionsTextEl = document.querySelector('#questionsText')
 const choicesUlEl = document.querySelector('#choicesUl')
 
 //Timer varibles
-let secondsLeft = 5
+let secondsLeft = 120
 let holdInterval = 0
 const penatly = 5
 
