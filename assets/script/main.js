@@ -111,7 +111,7 @@ const questionsTextEl = document.querySelector('#questionsText')
 const choicesUlEl = document.querySelector('#choicesUl')
 
 //Timer varibles
-let secondsLeft = 120
+let secondsLeft = 5
 let holdInterval = 0
 const penatly = 5
 
@@ -134,7 +134,8 @@ timerEl.addEventListener('click', function(){
       if(secondsLeft <= 0) {
         clearInterval(holdInterval);
         currentTimeEl.textContent = `Time's up!`
-      }
+        finish()
+      } 
     }, 1000)
   } populate(questionIndex);
 })
@@ -187,11 +188,6 @@ function compare(event){
     populate(questionIndex);
   }
   questionsDivEl.appendChild(createDiv)
-}
-
-//Test function
-function test1(){
-  console.log('working')
 }
 
 function finish(){

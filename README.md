@@ -1,5 +1,9 @@
 # Code Quiz
 
+https://github.com/ZakkFast/super-awesome-coding-assement-simulator
+
+https://zakkfast.github.io/super-awesome-coding-assement-simulator/
+
 
 
 
